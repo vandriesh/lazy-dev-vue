@@ -1,0 +1,37 @@
+<idea-plugin>
+    <id>com.lazydev.vue</id>
+    <name>Lazy dev vue live templates</name>
+    <version>1.0</version>
+    <vendor email="vitalie.andries@gmail.com" url="https://github.com/vandriesh/lazy-dev-dev">LazyDev</vendor>
+
+  <description><![CDATA[
+    Snippets to make vue developer's life easier
+    ]]></description>
+
+  <change-notes><![CDATA[
+    0.0.1 - Adding placeholder for further development
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.lang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplatesProvider implementation="dev.lazyts.vue.LazyVueDevTemplateProvider"/>
+        <liveTemplateContext implementation="dev.lazyts.vue.LazyVueDevContext"/>
+
+    </extensions>
+
+    <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
