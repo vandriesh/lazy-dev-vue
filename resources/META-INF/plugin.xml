@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>dev.lazyts.vue</id>
   <name>LazyDevVue</name>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <vendor email="vitalie.andries@gmail.com" url="https://github.com/vandriesh/lazy-dev-vue">LazyDevVue</vendor>
 
   <description><![CDATA[
@@ -11,7 +11,7 @@
   <change-notes><![CDATA[
       Adding a placeholder for future templates.
       <ul>
-          <li>0.0.1 - adding test template for vue component (with property and store)</li>
+          <li>0.0.2 - adding test template for vue component (with property and store)</li>
       </ul>
     ]]>
   </change-notes>
