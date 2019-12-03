@@ -6,7 +6,7 @@ import org.jetbrains.annotations.Nullable;
 public class LazyVueDevTemplateProvider implements DefaultLiveTemplatesProvider {
     @Override
     public String[] getDefaultLiveTemplateFiles() {
-        return new String[]{"liveTemplates/lazy-dev-vue"};
+        return new String[]{"liveTemplates/lazydevvue"};
     }
 
     @Nullable

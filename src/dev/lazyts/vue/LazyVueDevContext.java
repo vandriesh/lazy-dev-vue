@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LazyVueDevContext extends TemplateContextType {
     protected LazyVueDevContext() {
-        super("LAZY_VUE_DEV", "lazy-vue-dev");
+        super("TYPESCRIPT", "TypeScript");
     }
 
     @Override
