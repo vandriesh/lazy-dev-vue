@@ -62,4 +62,15 @@
             <option name="Vue" value="true"/>
         </context>
     </template>
+    <template name="qwe-test-vue-base-component-with-property" value="import { mount, Wrapper } from '@vue/test-utils';&#10;// local imports&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;    let wrapper: Wrapper&lt;$COMPONENT_NAME$&gt;;&#10;    const aProperty = '{some_value}';&#10;&#10;    beforeEach(() =&gt; {&#10;        // setup&#10;        wrapper = mount($COMPONENT_NAME$, {&#10;            propsData: {&#10;                aProperty&#10;            }&#10;        });&#10;    });&#10;&#10;    it('should render', () =&gt; {&#10;        const elementWrapper = wrapper.find('.aProperty');&#10;&#10;        expect(elementWrapper.text()).toEqual(aProperty);&#10;    });&#10;});&#10;" description="test vue base component with a property" toReformat="true" toShortenFQNames="true">
+      <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+      <context>
+        <option name="Vue" value="true" />
+      </context>
+    </template>
+    <template name="qwe-vue-base-component-with-property" value="&lt;template&gt;&#10;&lt;div class=&quot;aProperty&quot;&gt;{{ aProperty }}&lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script lang=&quot;ts&quot;&gt;&#10;import { Component, Prop, Vue } from 'vue-property-decorator';&#10;&#10;@Component&#10;export default class BaseComponent extends Vue {&#10;    @Prop() private aProperty!: string;&#10;}&#10;&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped lang=&quot;scss&quot;&gt;&#10;.aProperty {&#10;    color: gray;&#10;}&#10;&lt;/style&gt;&#10;" description="generate vue base component with a property" toReformat="false" toShortenFQNames="true">
+      <context>
+        <option name="Vue" value="true" />
+      </context>
+    </template>
 </templateSet>

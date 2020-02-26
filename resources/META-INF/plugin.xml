@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>dev.lazyts.vue</id>
   <name>LazyDevVue</name>
-  <version>0.0.2</version>
+  <version>0.0.2a</version>
   <vendor email="vitalie.andries@gmail.com" url="https://github.com/vandriesh/lazy-dev-vue">LazyDevVue</vendor>
 
   <description><![CDATA[
@@ -9,9 +9,25 @@
   ]]></description>
 
   <change-notes><![CDATA[
-      Adding a placeholder for future templates.
       <ul>
-          <li>0.0.2 - adding test template for vue component (with property and store)</li>
+          <li>
+            0.0.2 - adding lazy <strong>qwe</strong> abbreviation for live templates:
+            <ol>
+              <li><strong>qwe-vue-base-component</strong> - generate vue base component with a property</li>
+              <li><strong>qwe-test-vue-base-component</strong> - test vue base component with a property</li>
+            </ol>
+
+            marked as "deprecated" (to be migrated to lazy "qwe" and for inline code _qwe):
+            <ol>
+              <li>tvcwp</li>
+              <li>tvcwsmag</li>
+              <li>tvc-with-prop-and-listener</li>
+              <li>tvc-with-prop</li>
+              <li>_tv_text_match</li>
+              <li>_tv_trigger_event</li>
+            </ol>
+          </li>
+          <li>0.0.1 - Adding placeholder for further development</li>
       </ul>
     ]]>
   </change-notes>
