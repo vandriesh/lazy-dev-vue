@@ -1,21 +1,76 @@
-<templateSet group="lazy-vue-dev">
-  <template name="tvcwp" value="import { mount, Wrapper } from '@vue/test-utils';&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;  it('should render', () =&gt; {&#10;    const aProperty = 'aProperty';&#10;    const wrapper: Wrapper&lt;$COMPONENT_NAME$&gt; = mount($COMPONENT_NAME$, {&#10;      propsData: {&#10;        aProperty&#10;      }&#10;    });&#10;&#10;    const domElement = wrapper.find('.aPropertyClassName').element;&#10;    expect(domElement.textContent).toMatch(aProperty);&#10;  });&#10;});" description="test vue component with property" toReformat="false" toShortenFQNames="true">
-    <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-      <option name="Vue" value="true" />
-    </context>
-  </template>
-  <template name="tvcwsmag" value="import Vuex from 'vuex';&#10;import { createLocalVue, mount } from '@vue/test-utils';&#10;&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;const localVue = createLocalVue();&#10;&#10;localVue.use(Vuex);&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;    let store;&#10;    let actions;&#10;    let getters;&#10;    let mutations;&#10;&#10;    beforeEach(() =&gt; {&#10;        actions = {&#10;            '$MODULE_STORE_ACTION$': jest.fn().mockImplementation(() =&gt; {&#10;                connsole.log('$MODULE_STORE_ACTION$ called')&#10;            })&#10;        };&#10;&#10;        getters = {&#10;            '$MODULE_STORE_GETTER$': jest.fn().mockReturnValue(null)&#10;        };&#10;&#10;        mutations = {&#10;            '$MODULE_STORE_MUTATION$': jest.fn().mockReturnValue(null)&#10;        };&#10;&#10;        const $STORE_MODULE_NAME$ = {&#10;            '$STORE_MODULE_PREFIX$/$STORE_MODULE_NAME$': {&#10;                namespaced: true,&#10;                getters,&#10;                actions&#10;            }&#10;        };&#10;&#10;        store = new Vuex.Store({&#10;            modules: {&#10;                ...$STORE_MODULE_NAME$&#10;            }&#10;        });&#10;    });&#10;&#10;    it('should call store/module $MODULE_STORE_ACTION$', () =&gt; {&#10;        // setup&#10;        const wrapper = mount($COMPONENT_NAME$, {&#10;            store,&#10;            localVue&#10;        });&#10;        const aButton = wrapper.find('.insert-here-your-action-trigger-selector');&#10;&#10;        // action&#10;        aButton.trigger('click');&#10;&#10;        // expectations&#10;        expect(actions.$MODULE_STORE_ACTION$).toHaveBeenCalled();&#10;    });&#10;});&#10;" description="test vue component with store, mutation, action and getter" toReformat="false" toShortenFQNames="true">
-    <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
-    <variable name="MODULE_STORE_ACTION" expression="" defaultValue="anAction" alwaysStopAt="false" />
-    <variable name="MODULE_STORE_GETTER" expression="" defaultValue="aGetter" alwaysStopAt="false" />
-    <variable name="MODULE_STORE_MUTATION" expression="" defaultValue="aMutation" alwaysStopAt="false" />
-    <variable name="STORE_MODULE_PREFIX" expression="" defaultValue="aModulePrefix" alwaysStopAt="false" />
-    <variable name="STORE_MODULE_NAME" expression="" defaultValue="aModule" alwaysStopAt="false" />
-    <context>
-      <option name="TypeScript" value="true" />
-      <option name="Vue" value="true" />
-    </context>
-  </template>
+<templateSet group="lazy-dev-vue">
+    <template name="tvcwp" value="import { mount, Wrapper } from '@vue/test-utils';&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;  it('should render', () =&gt; {&#10;    const aProperty = 'aProperty';&#10;    const wrapper: Wrapper&lt;$COMPONENT_NAME$&gt; = mount($COMPONENT_NAME$, {&#10;      propsData: {&#10;        aProperty&#10;      }&#10;    });&#10;&#10;    const domElement = wrapper.find('.aPropertyClassName').element;&#10;    expect(domElement.textContent).toMatch(aProperty);&#10;  });&#10;});" description="test vue component with property (deprecated, use tvc-with-prop)" toReformat="true" toShortenFQNames="true">
+        <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+            <option name="TypeScript" value="true"/>
+            <option name="Vue" value="true"/>
+        </context>
+    </template>
+    <template name="tvcwsmag" value="import Vuex from 'vuex';&#10;import { createLocalVue, mount } from '@vue/test-utils';&#10;&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;const localVue = createLocalVue();&#10;&#10;localVue.use(Vuex);&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;    let store;&#10;    let actions;&#10;    let getters;&#10;    let mutations;&#10;&#10;    beforeEach(() =&gt; {&#10;        actions = {&#10;            '$MODULE_STORE_ACTION$': jest.fn().mockImplementation(() =&gt; {&#10;                connsole.log('$MODULE_STORE_ACTION$ called')&#10;            })&#10;        };&#10;&#10;        getters = {&#10;            '$MODULE_STORE_GETTER$': jest.fn().mockReturnValue(null)&#10;        };&#10;&#10;        mutations = {&#10;            '$MODULE_STORE_MUTATION$': jest.fn().mockReturnValue(null)&#10;        };&#10;&#10;        const $STORE_MODULE_NAME$ = {&#10;            '$STORE_MODULE_PREFIX$/$STORE_MODULE_NAME$': {&#10;                namespaced: true,&#10;                getters,&#10;                actions&#10;            }&#10;        };&#10;&#10;        store = new Vuex.Store({&#10;            modules: {&#10;                ...$STORE_MODULE_NAME$&#10;            }&#10;        });&#10;    });&#10;&#10;    it('should call store/module $MODULE_STORE_ACTION$', () =&gt; {&#10;        // setup&#10;        const wrapper = mount($COMPONENT_NAME$, {&#10;            store,&#10;            localVue&#10;        });&#10;        const aButton = wrapper.find('.insert-here-your-action-trigger-selector');&#10;&#10;        // action&#10;        aButton.trigger('click');&#10;&#10;        // expectations&#10;        expect(actions.$MODULE_STORE_ACTION$).toHaveBeenCalled();&#10;    });&#10;});&#10;" description="test vue component with store, muttation, action and getter" toReformat="true" toShortenFQNames="true">
+        <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false"/>
+        <variable name="MODULE_STORE_ACTION" expression="" defaultValue="anAction" alwaysStopAt="false"/>
+        <variable name="MODULE_STORE_GETTER" expression="" defaultValue="aGetter" alwaysStopAt="false"/>
+        <variable name="MODULE_STORE_MUTATION" expression="" defaultValue="aMutation" alwaysStopAt="false"/>
+        <variable name="STORE_MODULE_PREFIX" expression="" defaultValue="aModulePrefix" alwaysStopAt="false"/>
+        <variable name="STORE_MODULE_NAME" expression="" defaultValue="aModule" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+            <option name="TypeScript" value="true"/>
+            <option name="Vue" value="true"/>
+        </context>
+    </template>
+    <template name="_tv_text_match"
+              value="const $ELEMENT_WRAPPER$ = wrapper.find('{element_selector}');&#10;&#10;expect($ELEMENT_WRAPPER$.text()).toMatch($VAR$);&#10;"
+              description="inline test dom element's text content" toReformat="true" toShortenFQNames="true">
+        <variable name="ELEMENT_WRAPPER" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true"/>
+        <variable name="VAR" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+        </context>
+    </template>
+    <template name="tvc-with-prop-and-listener"
+              value="import { mount, Wrapper } from '@vue/test-utils';&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;    let wrapper: Wrapper&lt;$COMPONENT_NAME$&gt;;&#10;    let $LISTENER$Spy;&#10;    const $VAR$ = '{some_value}';&#10;&#10;    beforeEach(() =&gt; {&#10;        $LISTENER$Spy = jest.fn();&#10;&#10;        wrapper = mount($COMPONENT_NAME$, {&#10;            propsData: {&#10;                prop1: $VAR$&#10;            },&#10;            listeners: {&#10;                '$LISTENER$': $LISTENER$Spy&#10;            }&#10;        });&#10;    });&#10;&#10;    it('should render', () =&gt; {&#10;        const $ELEMENT_WRAPPER$ = wrapper.find('{element_selector}');&#10;&#10;        expect($ELEMENT_WRAPPER$.text()).toMatch($VAR$);&#10;    });&#10;    &#10;    it('should trigger {event_name}', () =&gt; {&#10;        const $TRIGGER_ELEMENT_WRAPPER$ = wrapper.find('{element_selector}');&#10;&#10;        $TRIGGER_ELEMENT_WRAPPER$.trigger('{event_name}');&#10;&#10;        expect($LISTENER$Spy).toHaveBeenCalled();&#10;    });&#10;});&#10;"
+              description="test vue component with property and listener" toReformat="true" toShortenFQNames="true">
+        <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true"/>
+        <variable name="LISTENER" expression="camelCase($EVENT_NAME$)" defaultValue="" alwaysStopAt="true"/>
+        <variable name="ELEMENT_WRAPPER" expression="" defaultValue="" alwaysStopAt="true"/>
+        <variable name="VAR" expression="&quot;someVar&quot;" defaultValue="" alwaysStopAt="true"/>
+        <variable name="TRIGGER_ELEMENT_WRAPPER" expression="" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+            <option name="TypeScript" value="true"/>
+            <option name="Vue" value="true"/>
+        </context>
+    </template>
+    <template name="_tv_trigger_event"
+              value="const $ELEMENT_WRAPPER$ = wrapper.find('{element_selector}');&#10;&#10;$ELEMENT_WRAPPER$.trigger('{event}')&#10;&#10;expect($LISTENER$Spy).toHaveBeenCalled()&#10;"
+              description="inline test dom element's trigger event" toReformat="true" toShortenFQNames="true">
+        <variable name="ELEMENT_WRAPPER" expression="" defaultValue="" alwaysStopAt="true"/>
+        <variable name="LISTENER" expression="jsSuggestVariableName()" defaultValue="" alwaysStopAt="true"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+        </context>
+    </template>
+    <template name="tvc-with-prop"
+              value="import { mount, Wrapper } from '@vue/test-utils';&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;  it('should render', () =&gt; {&#10;    const aProperty = 'aProperty';&#10;    const wrapper: Wrapper&lt;$COMPONENT_NAME$&gt; = mount($COMPONENT_NAME$, {&#10;      propsData: {&#10;        aProperty&#10;      }&#10;    });&#10;&#10;    const domElement = wrapper.find('.aPropertyClassName').element;&#10;    expect(domElement.textContent).toMatch(aProperty);&#10;  });&#10;});"
+              description="test vue component with property" toReformat="true" toShortenFQNames="true">
+        <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false"/>
+        <context>
+            <option name="JAVA_SCRIPT" value="true"/>
+            <option name="TypeScript" value="true"/>
+            <option name="Vue" value="true"/>
+        </context>
+    </template>
+    <template name="qwe-test-vue-base-component-with-property" value="import { mount, Wrapper } from '@vue/test-utils';&#10;// local imports&#10;import $COMPONENT_NAME$ from './$COMPONENT_NAME$.vue';&#10;&#10;&#10;describe('$COMPONENT_NAME$', () =&gt; {&#10;    let wrapper: Wrapper&lt;$COMPONENT_NAME$&gt;;&#10;    const aProperty = '{some_value}';&#10;&#10;    beforeEach(() =&gt; {&#10;        // setup&#10;        wrapper = mount($COMPONENT_NAME$, {&#10;            propsData: {&#10;                aProperty&#10;            }&#10;        });&#10;    });&#10;&#10;    it('should render', () =&gt; {&#10;        const elementWrapper = wrapper.find('.aProperty');&#10;&#10;        expect(elementWrapper.text()).toEqual(aProperty);&#10;    });&#10;});&#10;" description="test vue base component with a property" toReformat="true" toShortenFQNames="true">
+      <variable name="COMPONENT_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="false" />
+      <context>
+        <option name="Vue" value="true" />
+      </context>
+    </template>
+    <template name="qwe-vue-base-component-with-property" value="&lt;template&gt;&#10;&lt;div class=&quot;aProperty&quot;&gt;{{ aProperty }}&lt;/div&gt;&#10;&lt;/template&gt;&#10;&#10;&lt;script lang=&quot;ts&quot;&gt;&#10;import { Component, Prop, Vue } from 'vue-property-decorator';&#10;&#10;@Component&#10;export default class BaseComponent extends Vue {&#10;    @Prop() private aProperty!: string;&#10;}&#10;&#10;&lt;/script&gt;&#10;&#10;&lt;style scoped lang=&quot;scss&quot;&gt;&#10;.aProperty {&#10;    color: gray;&#10;}&#10;&lt;/style&gt;&#10;" description="generate vue base component with a property" toReformat="false" toShortenFQNames="true">
+      <context>
+        <option name="Vue" value="true" />
+      </context>
+    </template>
 </templateSet>

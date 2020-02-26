@@ -1,15 +1,34 @@
 <idea-plugin>
-    <id>com.lazydev.vue</id>
-    <name>Lazy dev vue live templates</name>
-    <version>1.0</version>
-    <vendor email="vitalie.andries@gmail.com" url="https://github.com/vandriesh/lazy-dev-dev">LazyDev</vendor>
+  <id>dev.lazyts.vue</id>
+  <name>LazyDevVue</name>
+  <version>0.0.2a</version>
+  <vendor email="vitalie.andries@gmail.com" url="https://github.com/vandriesh/lazy-dev-vue">LazyDevVue</vendor>
 
   <description><![CDATA[
-    Snippets to make vue developer's life easier
-    ]]></description>
+     Plugin for lazy developers that are struggling with writing tests. Like me.
+  ]]></description>
 
   <change-notes><![CDATA[
-    0.0.1 - Adding placeholder for further development
+      <ul>
+          <li>
+            0.0.2 - adding lazy <strong>qwe</strong> abbreviation for live templates:
+            <ol>
+              <li><strong>qwe-vue-base-component</strong> - generate vue base component with a property</li>
+              <li><strong>qwe-test-vue-base-component</strong> - test vue base component with a property</li>
+            </ol>
+
+            marked as "deprecated" (to be migrated to lazy "qwe" and for inline code _qwe):
+            <ol>
+              <li>tvcwp</li>
+              <li>tvcwsmag</li>
+              <li>tvc-with-prop-and-listener</li>
+              <li>tvc-with-prop</li>
+              <li>_tv_text_match</li>
+              <li>_tv_trigger_event</li>
+            </ol>
+          </li>
+          <li>0.0.1 - Adding placeholder for further development</li>
+      </ul>
     ]]>
   </change-notes>
 
@@ -21,16 +40,11 @@
   <depends>com.intellij.modules.lang</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+    <defaultLiveTemplatesProvider implementation="dev.lazyts.vue.LazyVueDevTemplateProvider"/>
+    <liveTemplateContext implementation="dev.lazyts.vue.LazyVueDevContext"/>
   </extensions>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <defaultLiveTemplatesProvider implementation="dev.lazyts.vue.LazyVueDevTemplateProvider"/>
-        <liveTemplateContext implementation="dev.lazyts.vue.LazyVueDevContext"/>
-
-    </extensions>
-
-    <actions>
+  <actions>
     <!-- Add your actions here -->
   </actions>
 
